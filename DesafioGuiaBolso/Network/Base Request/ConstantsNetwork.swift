@@ -9,7 +9,7 @@
 
 struct ConstantsNetwork {
     
-    static let baseUrl = "https://jsonplaceholder.typicode.com/"
+    static let baseUrl = "https://api.chucknorris.io/jokes"
     
     struct Parameters {
         static let userId = "userId"

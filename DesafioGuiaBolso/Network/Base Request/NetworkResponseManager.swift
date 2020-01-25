@@ -1,5 +1,5 @@
 //
-//  ClientRequest.swift
+//  NetworkResponseManager.swift
 //  DesafioGuiaBolso
 //
 //  Created by Paulo Rosa on 24/01/20.

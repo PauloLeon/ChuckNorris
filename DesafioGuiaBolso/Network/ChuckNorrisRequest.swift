@@ -1,5 +1,5 @@
 //
-//  ClientRequest.swift
+//  ChuckNorrisRequest.swift
 //  DesafioGuiaBolso
 //
 //  Created by Paulo Rosa on 24/01/20.
@@ -9,32 +9,32 @@
 import Foundation
 import UIKit
 
-public enum ClientAPI {
-    case getPost(userId: Int)
+public enum ChuckNorrisAPI {
+    case getCategories
 }
 
-extension ClientAPI: EndPointType {
+extension ChuckNorrisAPI: EndPointType {
     var baseUrl: URL {
         return URL(string: ConstantsNetwork.baseUrl)!
     }
     
     var path: String {
         switch self {
-        case .getPost(_):
-            return "posts"
+        case .getCategories:
+            return "/categories"
         }
     }
     
     var task: HTTPTask {
         switch self {
-        case .getPost(_):
+        case .getCategories:
             return .requestParametersAndHeader(bodyParameters: nil, urlParameters: nil, additionalHeader: nil)
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .getPost(_):
+        case .getCategories:
             return .get
         }
     }
@@ -46,15 +46,14 @@ extension ClientAPI: EndPointType {
 
 }
 
-public struct ClientManager: EndPointManager {
-    typealias T = ClientAPI
+public struct ChuckNorrisManager: EndPointManager {
+    typealias T = ChuckNorrisAPI
     
-    public func getPost(userID: Int,
-                          successHandler: @escaping ( _ sucess: Posts) ->(),
+    public func getCategories(successHandler: @escaping ( _ sucess: Categories) ->(),
                              errorHandler: @escaping ( _ error:Error) ->()) {
         
-         router.request(.getPost(userId: userID)) { (data, response, error) in
-             let result:DecodeResult<Posts> = DecoderResponse().decodeResponser(data: data, response: response, error: error)
+         router.request(.getCategories) { (data, response, error) in
+             let result:DecodeResult<Categories> = DecoderResponse().decodeResponser(data: data, response: response, error: error)
 
              switch result {
              case .success(let model):

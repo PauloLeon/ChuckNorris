@@ -7,74 +7,64 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class CategoriesViewController: UIViewController {
 
-    let reuseIdentifier = "CategorieReuseIdentifier"
-    let tableViewCellNib = "CategorieTableViewCell"
-    let tableViewCellSegue = "segueDetail"
-    let navigationTitle = "Categories"
-    let tableViewCellHeight: CGFloat = 88.0
+    let kReuseIdentifier = "CategorieReuseIdentifier"
+    let kTableViewCellSegue = "segueDetail"
+    let kNavigationTitle = "Categories"
+    let kTableViewCellHeight: CGFloat = 88.0
     let categorieViewModel = CategoriesViewModel()
+    let disposeBag = DisposeBag()
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.dataSource = self
             tableView.delegate = self
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let api = ClientManager()
-        api.getPost(userID: 1, successHandler: { (value) in
-            print("List of posts:", value)
-        }, errorHandler: { (error) in
-            print(error)
-        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setupNavigationBar()
+        setupUI()
     }
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == tableViewCellSegue {
+        if segue.identifier == kTableViewCellSegue {
             // to-do
         }
     }
     
     private func setupNavigationBar() {
-        title = navigationTitle
+        title = kNavigationTitle
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
-}
-
-extension CategoriesViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categorieViewModel.configNumberOfRows()
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as? CategorieTableViewCell else {
-            return UITableViewCell()
-        }
-        categorieViewModel.configTableViewCell(cell: cell)        
-        return cell
+    private func setupUI() {
+        categorieViewModel.categories.bind(to: tableView.rx.items(cellIdentifier: kReuseIdentifier)) { row, model, cell in
+                self.categorieViewModel.configTableViewCell(cell: cell, joke: model)
+        }.disposed(by: disposeBag)
+        
+        categorieViewModel.getCategories()
     }
 }
 
 extension CategoriesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: tableViewCellSegue, sender: nil)
+        performSegue(withIdentifier: kTableViewCellSegue, sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableViewCellHeight
+        return kTableViewCellHeight
     }
 }
 
