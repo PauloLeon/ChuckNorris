@@ -26,6 +26,12 @@ class CategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let api = ClientManager()
+        api.getPost(userID: 1, successHandler: { (value) in
+            print("List of posts:", value)
+        }, errorHandler: { (error) in
+            print(error)
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {

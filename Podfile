@@ -7,7 +7,7 @@ target 'DesafioGuiaBolso' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'SDWebImage'
-  pod 'Alamofire'
+  pod 'Alamofire', '~> 4.0'
 
   # Pods for CDBOL
 
