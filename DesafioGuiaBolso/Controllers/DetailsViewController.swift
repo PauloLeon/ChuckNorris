@@ -15,6 +15,7 @@ import SDWebImage
 class DetailsViewController: UIViewController {
         
     var chosenCategory: String?
+    
     let detailsViewModel = DetailsViewModel()
     let disposeBag = DisposeBag()
     let kCornerButton: CGFloat = 8.0
@@ -32,6 +33,7 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindUI()
+        setupAccessibility()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,19 +48,41 @@ class DetailsViewController: UIViewController {
     
     private func bindUI() {
         LoadingView.showActivityIndicatory(view: view)
+        
         linkButtonJoke.rx.tap.bind {
             self.openURL()
         }.disposed(by: disposeBag)
         
         detailsViewModel.joke.asObservable().subscribe(onNext: { _ in
-            LoadingView.stopActivityIndicator(view: self.view)
             self.imageJoke.sd_setImage(with: URL(string: self.detailsViewModel.getImageJoke()), placeholderImage: UIImage(named: self.kImagePlaceholder))
             self.labelJoke.text = self.detailsViewModel.getTextJoke()
         }).disposed(by: disposeBag)
         
+        detailsViewModel.isLoadingFinish.asObservable().subscribe(onNext: { value in
+            if value {
+                LoadingView.stopActivityIndicator(view: self.view)
+            }
+        }).disposed(by: disposeBag)
+
         if let category = chosenCategory {
             detailsViewModel.getJoke(category: category)
         }
+
+    }
+    
+    private func setupAccessibility() {
+        imageJoke.isAccessibilityElement = false
+        labelJoke.isAccessibilityElement = true
+        linkButtonJoke.isAccessibilityElement = true
+        
+        guard let navController = navigationController,
+            let titleNavBar = navController.navigationBar.topItem else {
+                accessibilityElements = [labelJoke as Any, linkButtonJoke as Any]
+            return
+        }
+        
+        titleNavBar.accessibilityTraits = .header
+        accessibilityElements = [navController.navigationItem.backBarButtonItem as Any, titleNavBar, labelJoke as Any, linkButtonJoke as Any]
     }
     
     private func openURL() {

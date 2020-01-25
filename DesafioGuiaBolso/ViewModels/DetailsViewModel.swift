@@ -14,7 +14,8 @@ import SDWebImage
 class DetailsViewModel {
     
     var joke: BehaviorRelay<Joke> = BehaviorRelay(value: Joke())
-    
+    var isLoadingFinish: BehaviorRelay<Bool> = BehaviorRelay(value: false)
+
     let kErrorText = "ops! without Funny, no jokes here"
     let kErrorURL = "error URL"
 
@@ -22,8 +23,10 @@ class DetailsViewModel {
         let api = ChuckNorrisManager()
         api.getJoke(category: category,successHandler: { (value) in
             self.joke.accept(value)
+            self.isLoadingFinish.accept(true)
         }, errorHandler: { (error) in
             print(error)
+            self.isLoadingFinish.accept(false)
         })
     }
     

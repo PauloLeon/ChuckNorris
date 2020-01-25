@@ -52,12 +52,24 @@ class CategoriesViewController: UIViewController {
     private func bindUI() {
         LoadingView.showActivityIndicatory(view: view)
         categorieViewModel.categories.bind(to: tableView.rx.items(cellIdentifier: kReuseIdentifier)) { row, categorie, cell in
-                LoadingView.stopActivityIndicator(view: self.view)
-                if let categorieCell = cell as? CategorieTableViewCell {
-                    categorieCell.categorieLabel.text = categorie
-                }
-            }.disposed(by: disposeBag)
+            LoadingView.stopActivityIndicator(view: self.view)
+            if let categorieCell = cell as? CategorieTableViewCell {
+                categorieCell.categorieLabel.text = categorie
+            }
+            self.setupAccessibility()
+        }.disposed(by: disposeBag)
         categorieViewModel.getCategories()
+    }
+    
+    private func setupAccessibility() {
+        tableView.isAccessibilityElement = true
+        guard let navController = navigationController,
+            let titleNavBar = navController.navigationBar.topItem else {
+                accessibilityElements = [tableView as Any]
+            return
+        }
+        titleNavBar.accessibilityTraits = .header
+        accessibilityElements = [ titleNavBar, tableView as Any]
     }
     
    
