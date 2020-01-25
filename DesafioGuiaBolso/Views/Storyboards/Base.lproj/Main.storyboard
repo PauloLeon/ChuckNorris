@@ -42,31 +42,47 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When Chuck Norris falls in water, Chuck Norris doesn't get wet. Water gets Chuck Norris." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkO-sX-KBc">
                                 <rect key="frame" x="24" y="188" width="327" height="61"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://api.chucknorris.io/jokes/vcj9kqsttjqxksyiytv11a" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7r-n7-7DA">
-                                <rect key="frame" x="24" y="257" width="327" height="40.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4k-ut-fqG">
+                                <rect key="frame" x="24" y="265" width="327" height="64"/>
+                                <color key="backgroundColor" red="1" green="0.83921568629999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="N6T-dv-Yjy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="See Joke">
+                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Y4k-ut-fqG" firstAttribute="top" secondItem="AkO-sX-KBc" secondAttribute="bottom" constant="16" id="7If-8n-1r9"/>
                             <constraint firstAttribute="trailing" secondItem="AkO-sX-KBc" secondAttribute="trailing" constant="24" id="Aa6-He-kA2"/>
                             <constraint firstItem="AkO-sX-KBc" firstAttribute="leading" secondItem="6vx-AB-PfR" secondAttribute="leading" constant="24" id="BxO-DE-IiA"/>
                             <constraint firstItem="AkO-sX-KBc" firstAttribute="top" secondItem="kOD-YD-6Qx" secondAttribute="bottom" constant="8" id="Fr7-3v-HkE"/>
-                            <constraint firstItem="Q7r-n7-7DA" firstAttribute="leading" secondItem="6vx-AB-PfR" secondAttribute="leading" constant="24" id="GgL-s2-6vz"/>
+                            <constraint firstItem="6vx-AB-PfR" firstAttribute="trailing" secondItem="Y4k-ut-fqG" secondAttribute="trailing" constant="24" id="Jm6-Yk-OWe"/>
                             <constraint firstItem="kOD-YD-6Qx" firstAttribute="centerX" secondItem="yXm-Jc-Swg" secondAttribute="centerX" id="L2W-gw-l1b"/>
-                            <constraint firstItem="Q7r-n7-7DA" firstAttribute="top" secondItem="AkO-sX-KBc" secondAttribute="bottom" constant="8" id="d84-bu-cXe"/>
-                            <constraint firstItem="6vx-AB-PfR" firstAttribute="trailing" secondItem="Q7r-n7-7DA" secondAttribute="trailing" constant="24" id="fNk-rn-CaW"/>
+                            <constraint firstItem="Y4k-ut-fqG" firstAttribute="leading" secondItem="6vx-AB-PfR" secondAttribute="leading" constant="24" id="eR8-KA-liM"/>
                             <constraint firstItem="kOD-YD-6Qx" firstAttribute="top" secondItem="6vx-AB-PfR" secondAttribute="top" constant="32" id="h9a-Fn-Jqc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6vx-AB-PfR"/>
                     </view>
                     <navigationItem key="navigationItem" id="nQ0-3Z-b3T"/>
+                    <connections>
+                        <outlet property="imageJoke" destination="kOD-YD-6Qx" id="8Cw-Kp-97s"/>
+                        <outlet property="labelJoke" destination="AkO-sX-KBc" id="dkl-bK-VL0"/>
+                        <outlet property="linkButtonJoke" destination="Y4k-ut-fqG" id="kxe-rk-2na"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w8W-Qp-Gdm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -91,7 +107,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="349" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explicit" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLo-KA-hhX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLo-KA-hhX">
                                                     <rect key="frame" x="15" y="27" width="326" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <nil key="textColor"/>

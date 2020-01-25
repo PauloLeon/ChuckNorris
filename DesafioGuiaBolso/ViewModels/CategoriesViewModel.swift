@@ -7,18 +7,29 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class CategoriesViewModel {
     
-    private let model  = "Teste de Model"
-    private let modelNumberRows: Int = 3
-    
-    func configTableViewCell(cell: CategorieTableViewCell) {
-        cell.categorieLabel.text = model
+    let categories: BehaviorRelay<Categories> = BehaviorRelay(value: [])
+    var chosenCategory = String.empty()
+        
+    func configTableViewCell(cell: CategorieTableViewCell, categorie: String) {
+        cell.categorieLabel.text = categorie
+    }
+ 
+    func getCategories() {
+        let api = ChuckNorrisManager()
+        api.getCategories(successHandler: { (value) in
+            self.categories.accept(value)
+        }, errorHandler: { (error) in
+            print(error)
+        })
     }
     
-    func configNumberOfRows() -> Int {
-        return modelNumberRows
+    func setChosenCategory(row: Int) {
+        chosenCategory = categories.value[row]
     }
-
+    
 }
