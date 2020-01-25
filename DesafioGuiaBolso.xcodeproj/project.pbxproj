@@ -150,14 +150,14 @@
 			path = "Base Request";
 			sourceTree = "<group>";
 		};
-		0B53216F23DCBDA300B5CD45 /* Extensions */ = {
+		0B53216F23DCBDA300B5CD45 /* Extensions+Loading */ = {
 			isa = PBXGroup;
 			children = (
 				0B53217023DCBDB300B5CD45 /* StringExtension.swift */,
 				0B53217323DCC4A100B5CD45 /* UIColorExtension.swift */,
 				0B53217523DCC7C700B5CD45 /* LoadingView.swift */,
 			);
-			path = Extensions;
+			path = "Extensions+Loading";
 			sourceTree = "<group>";
 		};
 		0B5AEF2423DB80F3000FDB61 /* Models */ = {
@@ -217,7 +217,7 @@
 				0BBC6F5923DB27AB008DF378 /* Views */,
 				0B5AEF2423DB80F3000FDB61 /* Models */,
 				0B83F42123DB91B700D3EAEC /* Network */,
-				0B53216F23DCBDA300B5CD45 /* Extensions */,
+				0B53216F23DCBDA300B5CD45 /* Extensions+Loading */,
 				0BBC6F5623DB2716008DF378 /* Resources */,
 			);
 			path = DesafioGuiaBolso;
