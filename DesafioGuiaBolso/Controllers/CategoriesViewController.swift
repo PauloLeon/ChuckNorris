@@ -14,7 +14,6 @@ class CategoriesViewController: UIViewController {
         
     let categorieViewModel = CategoriesViewModel()
     let disposeBag = DisposeBag()
-    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     let kReuseIdentifier = "CategorieReuseIdentifier"
     let kTableViewCellSegue = "segueDetail"
     let kNavigationTitle = "Categories"
@@ -51,25 +50,17 @@ class CategoriesViewController: UIViewController {
     }
     
     private func bindUI() {
-        categorieViewModel.categories.bind(to: tableView.rx.items(cellIdentifier: kReuseIdentifier)) { row, model, cell in
-                self.categorieViewModel.configTableViewCell(cell: cell, categorie: model)
+        LoadingView.showActivityIndicatory(view: view)
+        categorieViewModel.categories.bind(to: tableView.rx.items(cellIdentifier: kReuseIdentifier)) { row, categorie, cell in
+                LoadingView.stopActivityIndicator(view: self.view)
+                if let categorieCell = cell as? CategorieTableViewCell {
+                    categorieCell.categorieLabel.text = categorie
+                }
             }.disposed(by: disposeBag)
         categorieViewModel.getCategories()
     }
     
-    private func showActivityIndicatory(view: UIView) {
-        activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0);
-        activityIndicator.center = view.center
-        activityIndicator.hidesWhenStopped = true
-        view.isUserInteractionEnabled = false
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-    }
-    
-    private func stopActivityIndicator(view: UIView) {
-        activityIndicator.stopAnimating()
-        view.isUserInteractionEnabled = true
-    }
+   
 }
 
 extension CategoriesViewController: UITableViewDelegate {

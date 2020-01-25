@@ -38,18 +38,20 @@ class DetailsViewController: UIViewController {
         super.viewWillAppear(true)
         setupNavigationBar()
     }
-        
-    @IBAction func linkPressed(_ sender: Any) {
-        
-    }
-            
+                    
     private func setupNavigationBar() {
         guard let titleNavigation = chosenCategory else { return }
         title = titleNavigation.capitalizingFirstLetter()
     }
     
     private func bindUI() {
+        LoadingView.showActivityIndicatory(view: view)
+        linkButtonJoke.rx.tap.bind {
+            self.openURL()
+        }.disposed(by: disposeBag)
+        
         detailsViewModel.joke.asObservable().subscribe(onNext: { _ in
+            LoadingView.stopActivityIndicator(view: self.view)
             self.imageJoke.sd_setImage(with: URL(string: self.detailsViewModel.getImageJoke()), placeholderImage: UIImage(named: self.kImagePlaceholder))
             self.labelJoke.text = self.detailsViewModel.getTextJoke()
             self.linkButtonJoke.titleLabel?.text = self.detailsViewModel.getUrlJoke()
@@ -57,6 +59,15 @@ class DetailsViewController: UIViewController {
         
         if let category = chosenCategory {
             detailsViewModel.getJoke(category: category)
+        }
+    }
+    
+    private func openURL() {
+        guard let url = URL(string: self.detailsViewModel.getUrlJoke()) else { return }
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
         }
     }
 
