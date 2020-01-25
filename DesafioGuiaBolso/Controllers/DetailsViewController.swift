@@ -54,7 +54,6 @@ class DetailsViewController: UIViewController {
             LoadingView.stopActivityIndicator(view: self.view)
             self.imageJoke.sd_setImage(with: URL(string: self.detailsViewModel.getImageJoke()), placeholderImage: UIImage(named: self.kImagePlaceholder))
             self.labelJoke.text = self.detailsViewModel.getTextJoke()
-            self.linkButtonJoke.titleLabel?.text = self.detailsViewModel.getUrlJoke()
         }).disposed(by: disposeBag)
         
         if let category = chosenCategory {
