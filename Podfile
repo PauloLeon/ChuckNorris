@@ -8,7 +8,6 @@ target 'DesafioGuiaBolso' do
   pod 'RxCocoa'
   pod 'SDWebImage'
   pod 'Alamofire', '~> 4.0'
-  pod 'NVActivityIndicatorView'
 
   # Pods for CDBOL
 

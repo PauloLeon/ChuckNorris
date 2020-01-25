@@ -11,35 +11,44 @@ import RxSwift
 import RxCocoa
 
 class CategoriesViewController: UIViewController {
-
+    
+    // MARK: - Constants
+    
+    let categorieViewModel = CategoriesViewModel()
+    let disposeBag = DisposeBag()
+    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     let kReuseIdentifier = "CategorieReuseIdentifier"
     let kTableViewCellSegue = "segueDetail"
     let kNavigationTitle = "Categories"
     let kTableViewCellHeight: CGFloat = 88.0
-    let categorieViewModel = CategoriesViewModel()
-    let disposeBag = DisposeBag()
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.delegate = self
+            tableView.rx.setDelegate(self).disposed(by: disposeBag)
         }
     }
     
+    // MARK: - override methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setupNavigationBar()
-        setupUI()
     }
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == kTableViewCellSegue {
-            // to-do
+            if let vc = segue.destination as? DetailsViewController {
+                vc.titleNav = "teste"
+            }
         }
     }
+    
+    // MARK: - private methods
     
     private func setupNavigationBar() {
         title = kNavigationTitle
@@ -47,12 +56,25 @@ class CategoriesViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
-    private func setupUI() {
+    private func bindUI() {
         categorieViewModel.categories.bind(to: tableView.rx.items(cellIdentifier: kReuseIdentifier)) { row, model, cell in
-                self.categorieViewModel.configTableViewCell(cell: cell, joke: model)
-        }.disposed(by: disposeBag)
-        
+                self.categorieViewModel.configTableViewCell(cell: cell, categorie: model)
+            }.disposed(by: disposeBag)
         categorieViewModel.getCategories()
+    }
+    
+    private func showActivityIndicatory(view: UIView) {
+        activityIndicator.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0);
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        view.isUserInteractionEnabled = false
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    private func stopActivityIndicator(view: UIView) {
+        activityIndicator.stopAnimating()
+        view.isUserInteractionEnabled = true
     }
 }
 

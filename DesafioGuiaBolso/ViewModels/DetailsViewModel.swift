@@ -10,4 +10,12 @@ import UIKit
 
 class DetailsViewModel {
 
+    func getJoke() {
+        let api = ChuckNorrisManager()
+        api.getJoke(category: "science",successHandler: { (value) in
+            print(value)
+        }, errorHandler: { (error) in
+            print(error)
+        })
+    }
 }

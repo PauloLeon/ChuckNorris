@@ -13,12 +13,9 @@ import RxCocoa
 class CategoriesViewModel {
     
     let categories: BehaviorRelay<Categories> = BehaviorRelay(value: [])
-    private let modelNumberRows: Int = 3
-    private let kZero: Int = 0
-    
-    
-    func configTableViewCell(cell: CategorieTableViewCell, joke: String) {
-        cell.categorieLabel.text = joke
+        
+    func configTableViewCell(cell: CategorieTableViewCell, categorie: String) {
+        cell.categorieLabel.text = categorie
     }
  
     func getCategories() {
@@ -29,5 +26,5 @@ class CategoriesViewModel {
             print(error)
         })
     }
-
+    
 }

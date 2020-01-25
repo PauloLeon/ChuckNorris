@@ -11,6 +11,7 @@ import UIKit
 
 public enum ChuckNorrisAPI {
     case getCategories
+    case getRandomJoke(category: String)
 }
 
 extension ChuckNorrisAPI: EndPointType {
@@ -22,19 +23,25 @@ extension ChuckNorrisAPI: EndPointType {
         switch self {
         case .getCategories:
             return "/categories"
+        case .getRandomJoke(_):
+            return "/random"
         }
     }
     
     var task: HTTPTask {
         switch self {
         case .getCategories:
-            return .requestParametersAndHeader(bodyParameters: nil, urlParameters: nil, additionalHeader: nil)
+            return .requestParameters(bodyParameters: nil, urlParameters: nil)
+        case .getRandomJoke(let category):
+            return .requestParameters(bodyParameters: nil, urlParameters: ["category": category])
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
         case .getCategories:
+            return .get
+        case .getRandomJoke(_):
             return .get
         }
     }
@@ -63,6 +70,22 @@ public struct ChuckNorrisManager: EndPointManager {
              }
          }
      }
+    
+    public func getJoke(category: String,
+                        successHandler: @escaping ( _ sucess: Joke) ->(),
+                            errorHandler: @escaping ( _ error:Error) ->()) {
+       
+        router.request(.getRandomJoke(category: category)) { (data, response, error) in
+            let result:DecodeResult<Joke> = DecoderResponse().decodeResponser(data: data, response: response, error: error)
+
+            switch result {
+            case .success(let model):
+                successHandler(model)
+            case .failure(let error):
+                errorHandler(error)
+            }
+        }
+    }
 
 
 }
