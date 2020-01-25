@@ -25,4 +25,14 @@ public struct Joke: Codable {
         case updatedAt = "updated_at"
         case url, value
     }
+    
+    init() {
+        categories =  []
+        createdAt = nil
+        iconURL = nil
+        id = nil
+        updatedAt = nil
+        url = nil
+        value = nil
+    }
 }

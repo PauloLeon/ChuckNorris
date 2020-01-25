@@ -11,9 +11,7 @@ import RxSwift
 import RxCocoa
 
 class CategoriesViewController: UIViewController {
-    
-    // MARK: - Constants
-    
+        
     let categorieViewModel = CategoriesViewModel()
     let disposeBag = DisposeBag()
     let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
@@ -27,9 +25,7 @@ class CategoriesViewController: UIViewController {
             tableView.rx.setDelegate(self).disposed(by: disposeBag)
         }
     }
-    
-    // MARK: - override methods
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         bindUI()
@@ -43,13 +39,11 @@ class CategoriesViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == kTableViewCellSegue {
             if let vc = segue.destination as? DetailsViewController {
-                vc.titleNav = "teste"
+                vc.chosenCategory = categorieViewModel.chosenCategory
             }
         }
     }
-    
-    // MARK: - private methods
-    
+        
     private func setupNavigationBar() {
         title = kNavigationTitle
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
@@ -81,6 +75,7 @@ class CategoriesViewController: UIViewController {
 extension CategoriesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        categorieViewModel.setChosenCategory(row: indexPath.row)
         performSegue(withIdentifier: kTableViewCellSegue, sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }

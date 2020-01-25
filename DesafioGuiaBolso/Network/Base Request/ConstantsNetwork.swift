@@ -12,7 +12,12 @@ struct ConstantsNetwork {
     static let baseUrl = "https://api.chucknorris.io/jokes"
     
     struct Parameters {
-        static let userId = "userId"
+        static let category = "category"
+    }
+    
+    struct Paths {
+        static let category = "/categories"
+        static let random = "/random"
     }
     
     enum HttpHeaderField: String {

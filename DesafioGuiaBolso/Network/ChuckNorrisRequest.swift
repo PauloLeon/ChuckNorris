@@ -22,9 +22,9 @@ extension ChuckNorrisAPI: EndPointType {
     var path: String {
         switch self {
         case .getCategories:
-            return "/categories"
+            return ConstantsNetwork.Paths.category
         case .getRandomJoke(_):
-            return "/random"
+            return ConstantsNetwork.Paths.random
         }
     }
     
@@ -33,7 +33,7 @@ extension ChuckNorrisAPI: EndPointType {
         case .getCategories:
             return .requestParameters(bodyParameters: nil, urlParameters: nil)
         case .getRandomJoke(let category):
-            return .requestParameters(bodyParameters: nil, urlParameters: ["category": category])
+            return .requestParameters(bodyParameters: nil, urlParameters: [ConstantsNetwork.Parameters.category: category])
         }
     }
     

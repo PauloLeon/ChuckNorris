@@ -13,6 +13,7 @@ import RxCocoa
 class CategoriesViewModel {
     
     let categories: BehaviorRelay<Categories> = BehaviorRelay(value: [])
+    var chosenCategory = String.empty()
         
     func configTableViewCell(cell: CategorieTableViewCell, categorie: String) {
         cell.categorieLabel.text = categorie
@@ -25,6 +26,10 @@ class CategoriesViewModel {
         }, errorHandler: { (error) in
             print(error)
         })
+    }
+    
+    func setChosenCategory(row: Int) {
+        chosenCategory = categories.value[row]
     }
     
 }
