@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "34452283F99F465E9F74EB411E1A890F"
+               BlueprintIdentifier = "EFDAD476263DC8E71747EC371426270C"
                BuildableName = "Pods_DesafioGuiaBolsoTests.framework"
                BlueprintName = "Pods-DesafioGuiaBolsoTests"
                ReferencedContainer = "container:Pods.xcodeproj">

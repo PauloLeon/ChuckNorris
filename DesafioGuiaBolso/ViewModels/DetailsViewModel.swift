@@ -11,16 +11,25 @@ import RxSwift
 import RxCocoa
 import SDWebImage
 
-class DetailsViewModel {
+protocol DetailsViewModelProtocol: AnyObject {
+    var joke: BehaviorRelay<Joke> { get }
+    func getJoke(category: String)
+    func getImageJoke() -> String
+    func getTextJoke() -> String
+    func getUrlJoke() -> String
+    var api: ChuckNorrisManagerProtocol{ get set }
+}
+
+class DetailsViewModel: DetailsViewModelProtocol {
     
     var joke: BehaviorRelay<Joke> = BehaviorRelay(value: Joke())
     var isLoadingFinish: BehaviorRelay<Bool> = BehaviorRelay(value: false)
-
+    var api: ChuckNorrisManagerProtocol = ChuckNorrisManagerAPI()
+    
     let kErrorText = "ops! without Funny, no jokes here"
     let kErrorURL = "error URL"
 
     func getJoke(category: String) {
-        let api = ChuckNorrisManagerAPI()
         api.getJoke(category: category,successHandler: { (value) in
             self.joke.accept(value)
             self.isLoadingFinish.accept(true)

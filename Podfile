@@ -11,7 +11,6 @@ target 'DesafioGuiaBolso' do
 
   target 'DesafioGuiaBolsoTests' do
     inherit! :search_paths
-    pod 'RxTest'
   end
 
 end

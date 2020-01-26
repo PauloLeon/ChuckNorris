@@ -21,6 +21,8 @@ class CategoriesViewModelTests: XCTestCase {
     }
 
     override func tearDown() {
+        viewModel = nil
+        mockVC = nil
     }
     
     func testGetCategories() {

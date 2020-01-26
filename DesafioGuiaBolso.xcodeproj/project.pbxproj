@@ -36,10 +36,11 @@
 		0BBC6F2C23DB1EBE008DF378 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BBC6F2A23DB1EBE008DF378 /* Main.storyboard */; };
 		0BBC6F2E23DB1EC0008DF378 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BBC6F2D23DB1EC0008DF378 /* Assets.xcassets */; };
 		0BBC6F3123DB1EC0008DF378 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BBC6F2F23DB1EC0008DF378 /* LaunchScreen.storyboard */; };
-		0BBC6F3C23DB1EC0008DF378 /* DesafioGuiaBolsoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBC6F3B23DB1EC0008DF378 /* DesafioGuiaBolsoTests.swift */; };
 		0BBC6F4723DB1EC0008DF378 /* DesafioGuiaBolsoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBC6F4623DB1EC0008DF378 /* DesafioGuiaBolsoUITests.swift */; };
 		0BBC6F5523DB2710008DF378 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBC6F5423DB2710008DF378 /* DetailsViewController.swift */; };
 		0BD5B31D23DD0D9D00A2AA86 /* MockChuckNorrisManagerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD5B31C23DD0D9D00A2AA86 /* MockChuckNorrisManagerAPI.swift */; };
+		0BD5B32023DD179000A2AA86 /* MockDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD5B31F23DD179000A2AA86 /* MockDetailsViewController.swift */; };
+		0BD5B32223DD187700A2AA86 /* DetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD5B32123DD187700A2AA86 /* DetailsViewModelTests.swift */; };
 		3EEB5DA2B50187E58D398021 /* Pods_DesafioGuiaBolso.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D364190AFFC32391E69C757A /* Pods_DesafioGuiaBolso.framework */; };
 		7BA03FB3E35ACE15F0908E2E /* Pods_DesafioGuiaBolsoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE940FA6856ED20BA4B4D3E /* Pods_DesafioGuiaBolsoTests.framework */; };
 /* End PBXBuildFile section */
@@ -94,13 +95,14 @@
 		0BBC6F3023DB1EC0008DF378 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BBC6F3223DB1EC0008DF378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BBC6F3723DB1EC0008DF378 /* DesafioGuiaBolsoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesafioGuiaBolsoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0BBC6F3B23DB1EC0008DF378 /* DesafioGuiaBolsoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioGuiaBolsoTests.swift; sourceTree = "<group>"; };
 		0BBC6F3D23DB1EC0008DF378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BBC6F4223DB1EC0008DF378 /* DesafioGuiaBolsoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesafioGuiaBolsoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BBC6F4623DB1EC0008DF378 /* DesafioGuiaBolsoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesafioGuiaBolsoUITests.swift; sourceTree = "<group>"; };
 		0BBC6F4823DB1EC0008DF378 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BBC6F5423DB2710008DF378 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		0BD5B31C23DD0D9D00A2AA86 /* MockChuckNorrisManagerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockChuckNorrisManagerAPI.swift; sourceTree = "<group>"; };
+		0BD5B31F23DD179000A2AA86 /* MockDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailsViewController.swift; sourceTree = "<group>"; };
+		0BD5B32123DD187700A2AA86 /* DetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModelTests.swift; sourceTree = "<group>"; };
 		4A510235C9B9626BED70B3B3 /* Pods-DesafioGuiaBolsoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioGuiaBolsoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DesafioGuiaBolsoTests/Pods-DesafioGuiaBolsoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DDD0E78A8C3F9E63D106279 /* Pods-DesafioGuiaBolsoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioGuiaBolsoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DesafioGuiaBolsoTests/Pods-DesafioGuiaBolsoTests.release.xcconfig"; sourceTree = "<group>"; };
 		7875C20CB62815EF20DF76EA /* Pods-DesafioGuiaBolso.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioGuiaBolso.release.xcconfig"; path = "Pods/Target Support Files/Pods-DesafioGuiaBolso/Pods-DesafioGuiaBolso.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				0B53217823DCF38500B5CD45 /* CategoriesViewModelTests.swift */,
+				0BD5B32123DD187700A2AA86 /* DetailsViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			children = (
 				0B53217B23DD007700B5CD45 /* MockCategorieViewController.swift */,
 				0BD5B31C23DD0D9D00A2AA86 /* MockChuckNorrisManagerAPI.swift */,
+				0BD5B31F23DD179000A2AA86 /* MockDetailsViewController.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -251,7 +255,6 @@
 			children = (
 				0B53217A23DD005A00B5CD45 /* Mocks */,
 				0B53217723DCF35F00B5CD45 /* ViewModels */,
-				0BBC6F3B23DB1EC0008DF378 /* DesafioGuiaBolsoTests.swift */,
 				0BBC6F3D23DB1EC0008DF378 /* Info.plist */,
 			);
 			path = DesafioGuiaBolsoTests;
@@ -361,7 +364,6 @@
 				0BBC6F3323DB1EC0008DF378 /* Sources */,
 				0BBC6F3423DB1EC0008DF378 /* Frameworks */,
 				0BBC6F3523DB1EC0008DF378 /* Resources */,
-				120E390AA237E7D49413CB6C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -462,30 +464,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		120E390AA237E7D49413CB6C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DesafioGuiaBolsoTests/Pods-DesafioGuiaBolsoTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DesafioGuiaBolsoTests/Pods-DesafioGuiaBolsoTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3D86CDFD519814194E2D4F22 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -601,8 +579,9 @@
 			files = (
 				0BD5B31D23DD0D9D00A2AA86 /* MockChuckNorrisManagerAPI.swift in Sources */,
 				0B53217923DCF38500B5CD45 /* CategoriesViewModelTests.swift in Sources */,
+				0BD5B32023DD179000A2AA86 /* MockDetailsViewController.swift in Sources */,
+				0BD5B32223DD187700A2AA86 /* DetailsViewModelTests.swift in Sources */,
 				0B53217C23DD007700B5CD45 /* MockCategorieViewController.swift in Sources */,
-				0BBC6F3C23DB1EC0008DF378 /* DesafioGuiaBolsoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
