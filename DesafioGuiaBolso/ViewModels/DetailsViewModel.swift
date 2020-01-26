@@ -20,7 +20,7 @@ class DetailsViewModel {
     let kErrorURL = "error URL"
 
     func getJoke(category: String) {
-        let api = ChuckNorrisManager()
+        let api = ChuckNorrisManagerAPI()
         api.getJoke(category: category,successHandler: { (value) in
             self.joke.accept(value)
             self.isLoadingFinish.accept(true)

@@ -10,12 +10,12 @@ import Foundation
 
 // MARK: - Joke
 public struct Joke: Codable {
-    let categories: [String]?
-    let createdAt: String?
-    let iconURL: String?
-    let id, updatedAt: String?
-    let url: String?
-    let value: String?
+    var categories: [String]?
+    var createdAt: String?
+    var iconURL: String?
+    var id, updatedAt: String?
+    var url: String?
+    var value: String?
 
     enum CodingKeys: String, CodingKey {
         case categories
@@ -35,4 +35,5 @@ public struct Joke: Codable {
         url = nil
         value = nil
     }
+    
 }

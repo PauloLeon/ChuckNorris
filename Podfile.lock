@@ -6,6 +6,8 @@ PODS:
   - RxRelay (5.0.1):
     - RxSwift (~> 5)
   - RxSwift (5.0.1)
+  - RxTest (5.0.1):
+    - RxSwift (~> 5)
   - SDWebImage (5.4.2):
     - SDWebImage/Core (= 5.4.2)
   - SDWebImage/Core (5.4.2)
@@ -14,6 +16,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.0)
   - RxCocoa
   - RxSwift
+  - RxTest
   - SDWebImage
 
 SPEC REPOS:
@@ -22,6 +25,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - RxTest
     - SDWebImage
 
 SPEC CHECKSUMS:
@@ -29,8 +33,9 @@ SPEC CHECKSUMS:
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
+  RxTest: 0132f952a61da82d5233abedaa559df91e5330e5
   SDWebImage: 4ca2dc4eefae4224bea8f504251cda485a363745
 
-PODFILE CHECKSUM: cae705605d5cfceb661d32414623e87adfa6a98d
+PODFILE CHECKSUM: b6067f65c071f36195ab8ce66070cb63f8f39147
 
 COCOAPODS: 1.5.3

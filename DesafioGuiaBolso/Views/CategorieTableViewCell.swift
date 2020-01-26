@@ -10,7 +10,15 @@ import UIKit
 
 class CategorieTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var categorieLabel: UILabel! 
+    @IBOutlet weak var categorieLabel: UILabel!
+    
+    public var cellCategorieConfigName : String? {
+        didSet {
+            self.categorieLabel.text = cellCategorieConfigName
+            self.categorieLabel.accessibilityTraits = .staticText
+            self.categorieLabel.accessibilityLabel = cellCategorieConfigName
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

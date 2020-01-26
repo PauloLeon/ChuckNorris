@@ -11,8 +11,8 @@ import RxSwift
 import RxCocoa
 
 class CategoriesViewController: UIViewController {
-        
-    let categorieViewModel = CategoriesViewModel()
+    
+    let categorieViewModel =  CategoriesViewModel()
     let disposeBag = DisposeBag()
     let kReuseIdentifier = "CategorieReuseIdentifier"
     let kTableViewCellSegue = "segueDetail"
@@ -54,7 +54,7 @@ class CategoriesViewController: UIViewController {
         categorieViewModel.categories.bind(to: tableView.rx.items(cellIdentifier: kReuseIdentifier)) { row, categorie, cell in
             LoadingView.stopActivityIndicator(view: self.view)
             if let categorieCell = cell as? CategorieTableViewCell {
-                categorieCell.categorieLabel.text = categorie
+                categorieCell.cellCategorieConfigName = categorie
             }
             self.setupAccessibility()
         }.disposed(by: disposeBag)

@@ -10,24 +10,27 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class CategoriesViewModel {
+protocol CategoriesViewModelProtocol: AnyObject {
+    var categories: BehaviorRelay<Categories> { get }
+    func getCategories()
+    func setChosenCategory(row: Int)
+    var api: ChuckNorrisManagerProtocol{ get set }
+}
+
+class CategoriesViewModel: CategoriesViewModelProtocol {
     
-    let categories: BehaviorRelay<Categories> = BehaviorRelay(value: [])
+    var api: ChuckNorrisManagerProtocol = ChuckNorrisManagerAPI()
+    var categories: BehaviorRelay<Categories> = BehaviorRelay(value: [])
     var chosenCategory = String.empty()
-        
-    func configTableViewCell(cell: CategorieTableViewCell, categorie: String) {
-        cell.categorieLabel.text = categorie
-    }
- 
+         
     func getCategories() {
-        let api = ChuckNorrisManager()
         api.getCategories(successHandler: { (value) in
             self.categories.accept(value)
         }, errorHandler: { (error) in
             print(error)
         })
     }
-    
+        
     func setChosenCategory(row: Int) {
         chosenCategory = categories.value[row]
     }

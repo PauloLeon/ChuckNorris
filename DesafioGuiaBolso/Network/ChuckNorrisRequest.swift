@@ -53,7 +53,12 @@ extension ChuckNorrisAPI: EndPointType {
 
 }
 
-public struct ChuckNorrisManager: EndPointManager {
+protocol ChuckNorrisManagerProtocol: AnyObject {
+    func getCategories(successHandler: @escaping ( _ sucess: Categories) ->(), errorHandler: @escaping ( _ error:Error) ->())
+    func getJoke(category: String, successHandler: @escaping ( _ sucess: Joke) ->(), errorHandler: @escaping ( _ error:Error) ->())
+}
+
+public class ChuckNorrisManagerAPI: EndPointManager, ChuckNorrisManagerProtocol {
     typealias T = ChuckNorrisAPI
     
     public func getCategories(successHandler: @escaping ( _ sucess: Categories) ->(),
