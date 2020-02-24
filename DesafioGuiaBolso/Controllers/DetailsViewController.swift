@@ -12,7 +12,7 @@ import RxCocoa
 import SDWebImage
 
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, StoryboardInstantiable {
         
     var chosenCategory: String?
     

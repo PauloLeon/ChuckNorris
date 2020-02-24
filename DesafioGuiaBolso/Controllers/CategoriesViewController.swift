@@ -10,14 +10,19 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class CategoriesViewController: UIViewController {
+protocol CategoriesViewControllerDelegate: class {
+  func CategoriesViewControllerDidSelectChosenCategory(_ chosenCategory: String)
+}
+
+class CategoriesViewController: UIViewController, StoryboardInstantiable {
     
     let categorieViewModel =  CategoriesViewModel()
     let disposeBag = DisposeBag()
     let kReuseIdentifier = "CategorieReuseIdentifier"
-    let kTableViewCellSegue = "segueDetail"
     let kNavigationTitle = "Categories"
     let kTableViewCellHeight: CGFloat = 88.0
+    
+    weak var delegate: CategoriesViewControllerDelegate?
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -34,15 +39,7 @@ class CategoriesViewController: UIViewController {
         super.viewWillAppear(true)
         setupNavigationBar()
     }
-        
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == kTableViewCellSegue {
-            if let vc = segue.destination as? DetailsViewController {
-                vc.chosenCategory = categorieViewModel.chosenCategory
-            }
-        }
-    }
-        
+
     private func setupNavigationBar() {
         title = kNavigationTitle
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
@@ -79,7 +76,7 @@ extension CategoriesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         categorieViewModel.setChosenCategory(row: indexPath.row)
-        performSegue(withIdentifier: kTableViewCellSegue, sender: nil)
+        delegate?.CategoriesViewControllerDidSelectChosenCategory(categorieViewModel.chosenCategory)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

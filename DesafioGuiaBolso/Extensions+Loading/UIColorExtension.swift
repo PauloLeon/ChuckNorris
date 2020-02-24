@@ -14,4 +14,9 @@ extension UIColor{
         return UIColor(red:55.0, green:55.0 ,blue:55.0 , alpha:0.75)
     }
     
+    class func getNavColor() -> UIColor {
+        return UIColor(red:1.00, green:0.84, blue:0.19, alpha:1.00)
+        
+    }
+    
 }
