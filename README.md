@@ -26,7 +26,7 @@ pod install
 - Arquitetura __MVVM__ facilitando testes unitários e funcionais alem de melhor organização
 - __Coordinator Pattern__ para simplificar a navegação do App
 - Layout incluindo __Acessibilidade__
-- Testes funcionais (utilização mock de retorno na API, para poder testar a camada de API) todas as chamadas são testadas dentro dos testes nas viewModels
+- __Testes__ funcionais (utilização mock de retorno na API, para poder testar a camada de API) todas as chamadas são testadas dentro dos testes nas viewModels
 - __ViewModels com Code Coverage 100%__ 
 
 
