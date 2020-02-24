@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:DesafioGuiaBolso.xcodeproj">
+      location = "self:/Users/paulorosa/Documents/iOS/DesafioGuiaBolso/Desafio.xcodeproj">
    </FileRef>
 </Workspace>

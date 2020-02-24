@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0BBC6F2023DB1EBE008DF378"
-               BuildableName = "DesafioGuiaBolso.app"
-               BlueprintName = "DesafioGuiaBolso"
-               ReferencedContainer = "container:DesafioGuiaBolso.xcodeproj">
+               BuildableName = "Desafio.app"
+               BlueprintName = "Desafio"
+               ReferencedContainer = "container:Desafio.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0BBC6F3623DB1EC0008DF378"
-               BuildableName = "DesafioGuiaBolsoTests.xctest"
-               BlueprintName = "DesafioGuiaBolsoTests"
-               ReferencedContainer = "container:DesafioGuiaBolso.xcodeproj">
+               BuildableName = "DesafioTests.xctest"
+               BlueprintName = "DesafioTests"
+               ReferencedContainer = "container:Desafio.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -44,9 +44,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0BBC6F4123DB1EC0008DF378"
-               BuildableName = "DesafioGuiaBolsoUITests.xctest"
-               BlueprintName = "DesafioGuiaBolsoUITests"
-               ReferencedContainer = "container:DesafioGuiaBolso.xcodeproj">
+               BuildableName = "DesafioUITests.xctest"
+               BlueprintName = "DesafioUITests"
+               ReferencedContainer = "container:Desafio.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0BBC6F2023DB1EBE008DF378"
-            BuildableName = "DesafioGuiaBolso.app"
-            BlueprintName = "DesafioGuiaBolso"
-            ReferencedContainer = "container:DesafioGuiaBolso.xcodeproj">
+            BuildableName = "Desafio.app"
+            BlueprintName = "Desafio"
+            ReferencedContainer = "container:Desafio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -83,9 +83,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0BBC6F2023DB1EBE008DF378"
-            BuildableName = "DesafioGuiaBolso.app"
-            BlueprintName = "DesafioGuiaBolso"
-            ReferencedContainer = "container:DesafioGuiaBolso.xcodeproj">
+            BuildableName = "Desafio.app"
+            BlueprintName = "Desafio"
+            ReferencedContainer = "container:Desafio.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
