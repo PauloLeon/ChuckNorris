@@ -15,7 +15,6 @@ import SDWebImage
 class DetailsViewController: UIViewController, StoryboardInstantiable {
         
     var chosenCategory: String?
-    
     let detailsViewModel = DetailsViewModel()
     let disposeBag = DisposeBag()
     let kCornerButton: CGFloat = 8.0
@@ -74,13 +73,11 @@ class DetailsViewController: UIViewController, StoryboardInstantiable {
         imageJoke.isAccessibilityElement = false
         labelJoke.isAccessibilityElement = true
         linkButtonJoke.isAccessibilityElement = true
-        
         guard let navController = navigationController,
             let titleNavBar = navController.navigationBar.topItem else {
                 accessibilityElements = [labelJoke as Any, linkButtonJoke as Any]
             return
         }
-        
         titleNavBar.accessibilityTraits = .header
         accessibilityElements = [navController.navigationItem.backBarButtonItem as Any, titleNavBar, labelJoke as Any, linkButtonJoke as Any]
     }
@@ -93,5 +90,4 @@ class DetailsViewController: UIViewController, StoryboardInstantiable {
             UIApplication.shared.openURL(url)
         }
     }
-
 }

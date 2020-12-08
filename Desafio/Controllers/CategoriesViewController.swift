@@ -68,8 +68,6 @@ class CategoriesViewController: UIViewController, StoryboardInstantiable {
         titleNavBar.accessibilityTraits = .header
         accessibilityElements = [ titleNavBar, tableView as Any]
     }
-    
-   
 }
 
 extension CategoriesViewController: UITableViewDelegate {

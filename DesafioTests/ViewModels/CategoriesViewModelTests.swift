@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import DesafioGuiaBolso
+@testable import Desafio
 
 class CategoriesViewModelTests: XCTestCase {
     

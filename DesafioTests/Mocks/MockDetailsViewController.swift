@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-@testable import DesafioGuiaBolso
+@testable import Desafio
 
 
 class MockDetailsViewController: UIViewController {

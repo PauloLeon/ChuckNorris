@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import DesafioGuiaBolso
+@testable import Desafio
 
 public class MockChuckNorrisManagerAPI: ChuckNorrisManagerProtocol {
     

@@ -45,8 +45,6 @@ class DecoderResponse: NSObject {
             
         case .failure(let netWorkError):
             return .failure(netWorkError)
-        }
-        
+        }        
     }
-    
 }
